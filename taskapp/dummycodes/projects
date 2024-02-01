@@ -1,0 +1,37 @@
+# class ProjectsCreateView(viewsets.ViewSet):
+#    @api_view(['POST'])
+#    @decode_jwt_token
+#    @allow_admin  
+#    def post(request):
+#     try:
+#     #     auth_header = request.META.get('HTTP_AUTHORIZATION')
+#     #     print('auth=', auth_header)
+#     #     print(type(auth_header))
+#     #     decoded_data = jwt.decode(jwt=auth_header,key='django-insecure-9m-%l$@f*7sfrxam$*n^#kz6b6z%2s%j&5_x73^d2na2(vv*&-',algorithms=["HS256"])
+#     #     print('decoded_data=',decoded_data)
+#     #     print(type(decoded_data))
+#     #     user_details=User.objects.filter(id=decoded_data['user_id']).values()
+#     #     print('user_details=',user_details) 
+#     #     print(type(user_details))
+#     #     user_type = user_details[0].get('user_type')
+#     #     print('usrtype=',user_type)   
+#         #  if user_type == 'ADMIN':  
+#            title = request.data.get('title')
+#            description=request.data.get('description')
+#            if Projects.objects.filter(title=title,description=description).exists():
+#              return Response({'success': False, 'message': 'A project with this title and description already exists.'}, status=400)      
+#            serializer = ProjectsSerializer(data=request.data)
+#            print("serializer=",serializer)
+#            serializer.is_valid(raise_exception=True)
+#            serializer.save()
+#            return Response({'success': True, 'message':CREATE_A_PROJECT_SUCCESSFULLY ,'data':serializer.data}, status=201)
+#         # else:
+#         #     return Response({'success': False, 'message': 'You do not have permission to create projects.'}, status=403)
+#     except serializers.ValidationError as e:
+#                 return Response({'success': False, 'message': e.detail}, status=422)
+#     except Projects.DoesNotExist:
+#         return Response({'success': False, 'message': USER_NOT_FOUND}, status=404)    
+#     except Exception as err:
+#             error_message = str(err)
+#             return Response({'success': False, 'errors': error_message}, status=500)
+    
